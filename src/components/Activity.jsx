@@ -1,11 +1,11 @@
-import React from "react"
+import React from "react";
 
-function Activity () {
-    return(
-        <>
-        <p>hello world</p>
-        </>
-    )
+function Activity() {
+  return (
+    <>
+      <p>hello world</p>
+    </>
+  );
 }
 
-export default Activity
+export default Activity;

@@ -7,8 +7,6 @@
   --background-color: #0f0f0f;
   background-color: var(--background-color);
 
-
-
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,9 +15,15 @@
   --sec: #fac4ff;
   --gray: #ffffff0a;
   --lightGray: #ffffff07;
+  --hoverBackground: rgba(250, 196, 255, 0.25);
+  --outlineBorder: 2px solid rgba(255, 255, 255, 0.16);
+  --hoverBorder: 2px solid var(--prim);
+  --hoverBlur: drop-shadow(0px 0px 4px rgba(250, 196, 255, .5));
+  --hoverTransition: 300ms background-color ease-in-out, 300ms border ease-in-out;
 }
 
-body, html {
+body,
+html {
   overflow-x: hidden;
   margin: 0;
   display: grid;
@@ -42,8 +46,7 @@ h2 {
   margin: 0;
   font-weight: 800;
 }
-.logo{
-  opacity: .5;
+.logo {
   font-size: 1.5em;
 }
 .logo:hover h2 {
@@ -52,12 +55,17 @@ h2 {
   box-shadow: 0 0 2px var(--sec);
   cursor: pointer;
 }
-
+.line hr {
+  background-color: var(--gray);
+  height: 2px;
+  border: none;
+}
 p {
-  font-size: 1.3em;
-  font-weight:lighter;
+  font-family: Inter, sans-serif;
+  font-size: 1.4em;
+  font-weight: 400;
   margin: 0;
-  color:#ffffffdd;
+  color: #ffffffdd;
 }
 
 /* button */
@@ -66,6 +74,7 @@ button {
   border: none;
   padding: 8px 24px;
   min-width: 180px;
+  min-height: 72px;
   font-size: 1.5em;
   font-weight: 500;
   text-align: left;
@@ -117,16 +126,26 @@ button:focus-visible {
 .choose {
   display: grid;
   grid-auto-flow: column;
-  grid-gap: 22px;
+  gap: 22px;
+  margin: 28px 0;
+  width: fit-content;
+
+  place-content: center;
+}
+.choose-contain {
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+  display: grid;
 }
 .option {
   background-color: var(--gray);
-  border: 2px solid var(--gray);
+  border: 3px solid var(--gray);
   backdrop-filter: blur(8px);
   width: 100px;
   min-width: 100px;
   padding: 16px 24px;
-  border-radius: 12px;
+  border-radius: 20px;
   text-align: center;
   transition: background-color 200ms ease-in-out;
   cursor: pointer;
@@ -140,13 +159,13 @@ button:focus-visible {
 .main-contain {
   display: grid;
   place-content: center;
-  background-color: var(--lightGray);
-  padding: 36px;
+  padding: 48px;
   border-radius: 36px;
+  gap: 36px;
   border: 4px solid var(--gray);
 }
 .feeling-contain {
-  border: 1px solid gray;
+  border: var(--outlineBorder);
   border-radius: 100px;
   padding: 8px 36px;
   display: grid;
@@ -160,13 +179,18 @@ button:focus-visible {
   font-size: 1.2em;
 }
 .feeling-contain span {
-  background-color: (121deg,#d850fc,#f192e5);
+  background-color: (121deg, #d850fc, #f192e5);
 }
 .feeling-contain:hover {
   background-color: var(--gray);
   cursor: pointer;
   box-shadow: 0 0 8px var(--prim);
-  
+}
+.input-contain {
+  max-width: 600px;
+}
+.input-item {
+  margin: 5vh 0;
 }
 /* navigation */
 .navContain {
@@ -182,11 +206,121 @@ button:focus-visible {
   width: 100vw;
   z-index: 1000;
 }
-/* results */
+/* results formating*/
 .resultContain {
   border: 10px solid gray;
 }
+.header-contain {
+  display: grid;
+  place-content: center;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: auto;
+  gap: 28px;
+}
 
+/* components */
+
+.tag {
+  background-color: var(--hoverBackground);
+  color: var(--sec);
+  font-weight: 300;
+  padding: 8px 18px;
+  white-space: nowrap;
+  border-radius: 12px;
+  width: fit-content;
+}
+/* forms */
+form input {
+  background-color: var(--background-color);
+  border: var(--outlineBorder);
+  border-radius: 18px;
+  padding: 22px;
+  font-size: 18px;
+  color: var(--outlineBorder);
+  width: 100%;
+  transition: var(--hoverTransition);
+}
+form input:hover, form input:focus {
+  border: var(--hoverBorder);
+  filter: var(--hoverBlur);
+  cursor: pointer;
+  outline: none;
+}
+/* filter tags */
+.filters-contain {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  
+}
+.filter-item {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 12px;
+  width: fit-content;
+  place-content: center;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border: var(--outlineBorder);
+  border-radius: 12px;
+  transition: var(--hoverTransition);
+  white-space: nowrap;
+}
+.filter-item:hover {
+  border: var(--hoverBorder);
+  filter: var(--hoverBlur);
+  cursor: pointer;
+}
+.filter-head-contain {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 8px;
+  width: fit-content;
+  align-items: center;
+}
+/* tooltip elemets */
+.tooltip-contain {
+  font-size: 16px;
+  opacity: .5;
+}
+.tooltip-contain:hover {
+  cursor: pointer;
+}
+.tooltip-div {
+  position: absolute;
+  transform: translateX(14vw) translateY(14vh);
+  border-radius: 20px;
+  border: var(--outlineBorder);
+  padding: 22px;
+  width: fit-content;
+  background-color: var(--background-color);
+  display: grid;
+  gap: 18px;
+}
+.tooltip-element-contain {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  
+  gap: 8px;
+  padding: 8px 12px;
+  width: calc(100% - 20px);
+  border-radius: 12px;
+  background-color: var(--gray);
+}
+.tooltip-div h3{
+  font-size: 16px;
+  margin: 0;
+}
+.tooltip-element-contain p {
+  font-size: .8em;
+  font-weight: 200;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

@@ -10,6 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.6.2",
     "framer-motion": "^10.16.5",
     "react": "^18.2.0",
@@ -17,12 +22,8 @@
     "react-card-flip": "^1.2.2",
     "react-dom": "^18.2.0",
     "react-reveal": "^1.2.2",
-<<<<<<< HEAD
     "react-textra": "^0.2.0",
     "react-type-animation": "^3.2.0"
-=======
-    "react-textra": "^0.2.0"
->>>>>>> 0f8835e2da1f8e5b1bb5a2f4dd44ca200d143451
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
