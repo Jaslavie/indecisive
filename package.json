@@ -17,8 +17,12 @@
     "react-card-flip": "^1.2.2",
     "react-dom": "^18.2.0",
     "react-reveal": "^1.2.2",
+<<<<<<< HEAD
     "react-textra": "^0.2.0",
     "react-type-animation": "^3.2.0"
+=======
+    "react-textra": "^0.2.0"
+>>>>>>> 0f8835e2da1f8e5b1bb5a2f4dd44ca200d143451
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
